@@ -21,16 +21,27 @@ dependencyResolutionManagement {
         create("libs") {
             version("kotlin", "1.7.20")
             version("hilt", "2.44.2")
-            version("compose","1.3.2")
+            version("compose", "1.3.2")
+            version("ktor", "2.1.1")
 
             library("androidx-ktx", "androidx.core", "core-ktx").version("1.9.0")
-            library("androidx-lifecycle","androidx.lifecycle","lifecycle-runtime-ktx").version("2.5.1")
-            library("androidx-activity","androidx.activity","activity-compose").version("1.6.1")
-            library("androidx-ui","androidx.compose.ui","ui").versionRef("compose")
-            library("androidx-preview","androidx.compose.ui","ui-tooling-preview").versionRef("compose")
-            library("androidx-material3","androidx.compose.material3","material3").version("1.1.0-alpha03")
+            library("androidx-lifecycle", "androidx.lifecycle", "lifecycle-runtime-ktx").version("2.5.1")
+            library("androidx-activity", "androidx.activity", "activity-compose").version("1.6.1")
+            library("androidx-ui", "androidx.compose.ui", "ui").versionRef("compose")
+            library("androidx-preview", "androidx.compose.ui", "ui-tooling-preview").versionRef("compose")
+            library("androidx-material3", "androidx.compose.material3", "material3").version("1.1.0-alpha03")
+            library("hilt", "com.google.dagger","hilt-android").version("2.44")
+
+            library("ktor-client", "io.ktor", "ktor-client-core").versionRef("ktor")
+            library("ktor-logging", "io.ktor", "ktor-client-logging").versionRef("ktor")
+            library("ktor-auth", "io.ktor", "ktor-client-auth").versionRef("ktor")
+            library("ktor-negotiation", "io.ktor", "ktor-client-content-negotiation").versionRef("ktor")
+            library("ktor-json", "io.ktor", "ktor-serialization-kotlinx-json").versionRef("ktor")
+            library("kotlinx-datetime", "org.jetbrains.kotlinx", "kotlinx-datetime").version("0.4.0")
+            library("russhwolf-settings", "com.russhwolf", "multiplatform-settings-no-arg").version("1.0.0")
         }
     }
 }
 rootProject.name = "getart"
 include ':app'
+include ':shared-metmuseum'
