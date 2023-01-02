@@ -30,7 +30,13 @@ dependencyResolutionManagement {
             library("androidx-ui", "androidx.compose.ui", "ui").versionRef("compose")
             library("androidx-preview", "androidx.compose.ui", "ui-tooling-preview").versionRef("compose")
             library("androidx-material3", "androidx.compose.material3", "material3").version("1.1.0-alpha03")
-            library("hilt", "com.google.dagger","hilt-android").version("2.44")
+            library("androidx-navigation", "androidx.navigation","navigation-compose").version("2.5.3")
+            library("androidx-hilt-navigation", "androidx.hilt","hilt-navigation-compose").version("1.0.0")
+
+
+            library("hilt", "com.google.dagger","hilt-android").versionRef("hilt")
+            library("hilt-android","com.google.dagger","hilt-android").versionRef("hilt")
+            library("hilt-compiler","com.google.dagger","hilt-compiler").versionRef("hilt")
 
             library("ktor-client", "io.ktor", "ktor-client-core").versionRef("ktor")
             library("ktor-logging", "io.ktor", "ktor-client-logging").versionRef("ktor")

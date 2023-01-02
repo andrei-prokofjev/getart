@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -16,7 +17,8 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -35,12 +37,18 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared-metmuseum"))
+
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.hilt.navigation)
     implementation(libs.hilt)
 
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }
