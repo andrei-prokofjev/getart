@@ -18,4 +18,9 @@ class DefaultMetMuseumRepository @Inject constructor(
     }
   }
 
+  override suspend fun fetchObjectsByDepartmentId(departmentId: Int) {
+    withContext(ioDispatcher) {
+      metMuseum.api.fetchArtsByDepartmentId(departmentId)
+    }
+  }
 }

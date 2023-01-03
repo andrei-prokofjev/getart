@@ -30,7 +30,7 @@ abstract class AppModule {
     @Singleton
     fun providesMetMuseum(): MetMuseum {
       return DefaultMetMuseum.Builder()
-        .baseUrl("https://collectionapi.metmuseum.org")
+        .baseUrl("https://collectionapi.metmuseum.org/public/collection/v1/")
         .logLevel(if (BuildConfig.DEBUG) LogLevel.ALL else LogLevel.NONE)
         .build()
     }

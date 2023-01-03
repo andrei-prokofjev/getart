@@ -1,5 +1,6 @@
 package com.apro.getart.metmuseum
 
+import com.apro.getart.metmuseum.model.ArtData
 import com.apro.getart.metmuseum.model.DepartmentsResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -13,6 +14,14 @@ internal class DefaultMetMuseumApi constructor(
 ) : MetMuseumApi {
 
   override suspend fun departments(): DepartmentsResponse {
-    return client.get("${baseUrl}/public/collection/v1/departments").body()
+    return client.get("${baseUrl}departments").body()
+  }
+
+  override suspend fun fetchArtsByDepartmentId(departmentId: Int) {
+    val data = client.get("${baseUrl}objects") {
+      parameter("departmentIds", departmentId)
+    }.body<ArtData>()
+    println(">>> " + data.objectIDs.size)
+
   }
 }
